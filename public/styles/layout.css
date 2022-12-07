@@ -31,9 +31,65 @@ body {
   background-color: #f4f1ec;
   width: 90%;
   margin: auto;
-  
+}
 
+
+#tweet-container {
+  padding: 10px;
+  
+}
+
+article.tweet {
+  border: black 3px solid;
+  padding: 10px;
+  
+}
+
+article.tweet:hover {
+  box-shadow: 5px 5px cadetblue
+}
+
+
+article.tweet header {
+  display: flex;
+  justify-content: space-between;
+  padding: 16px;
+  color: black;
+  
+}
+
+i.fa-solid {
+  color:  #4056A1
+}
+
+article.tweet footer {
+  display: flex;
+  justify-content: space-between;
 
 }
 
+ .date {
+  font-size: 16px;
+  color: black;
+  margin: 0;
+  
+ }
+
+ article.tweet header p {
+  margin: 10px
+ }
+
+ hr {
+  border-color: #545149;
+  border-width: 2px;
+ }
+
+ .image {
+  display: flex;
+ }
+
+ div i:hover {
+  color: yellow;
+ }
+ 
 

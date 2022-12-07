@@ -37,11 +37,14 @@ body {
 #tweet-container {
   padding: 10px;
   
+  
+  
 }
 
 article.tweet {
   border: black 3px solid;
   padding: 10px;
+ margin: 20px;
   
 }
 

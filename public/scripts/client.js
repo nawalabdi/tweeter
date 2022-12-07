@@ -27,7 +27,6 @@ $(document).ready(function () {
     </div>
     </footer >
      </article>`
-     
 
     )
     return $tweet;
@@ -40,37 +39,45 @@ $(document).ready(function () {
       $(`#tweet-container`).prepend($tweet)
     }
   }
-  
 
-  const loadTweets = function() {
-    $.get("/tweets", function(data){
+
+  const loadTweets = function () {
+    $.get("/tweets", function (data) {
       renderTweets(data)
     });
-    
+
   }
   loadTweets()
-  
-  
+
+
   $("#my-form").on("submit", function (event) {
     event.preventDefault();
     const formData = ($(this).serialize());
-    
-    
-    $.ajax({
-      type: "POST",
-      url: '/tweets/',
-      data:formData,
-      success:() => {loadTweets()},
-    })
-    
-    
-    
-  })
+    if (formData.length === 5 ) {
+      alert('Tweet cannot be empty')
+      return;
+    } 
+    if (formData.length > 145) {
+      alert('tweet cannot be longer than 140 characters!');
   
+    } else {
+          $.ajax({
+            type: "POST",
+            url: '/tweets/',
+            data: formData,
+            success: () => { loadTweets() },
+          })
+    
+        }
 
+  })
 })
 
 
+
+// The user should be given an error that their tweet content is too long or that it is not present (ideally separate messages for each scenario)
+// The form should not be cleared
+// The form should not submit
 
 
 

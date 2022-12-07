@@ -19,7 +19,7 @@ $(document).ready(function () {
     </p>
     <hr/>
     <footer >
-      <p class ="date">  ${tweetData.created_at}</p>
+      <p class ="date"> ${timeago.format(tweetData.created_at)}</p>
       <div>
       <i class="fa-solid fa-flag"></i>
       <i class="fa-solid fa-retweet"></i>
@@ -27,6 +27,7 @@ $(document).ready(function () {
     </div>
     </footer >
      </article>`
+     
 
     )
     return $tweet;
@@ -44,17 +45,16 @@ $(document).ready(function () {
   const loadTweets = function() {
     $.get("/tweets", function(data){
       renderTweets(data)
-      console.log(data);
     });
     
   }
   loadTweets()
-
-
+  
+  
   $("#my-form").on("submit", function (event) {
     event.preventDefault();
     const formData = ($(this).serialize());
-    console.log("HELLO FROM JQUERY")
+    
     
     $.ajax({
       type: "POST",
@@ -62,12 +62,12 @@ $(document).ready(function () {
       data:formData,
       success:() => {loadTweets()},
     })
-
-  
-
+    
+    
     
   })
   
+
 })
 
 

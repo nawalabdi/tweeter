@@ -1,9 +1,16 @@
 /*
- * Client-side JS logic goes here
- * jQuery is already loaded
- * Reminder: Use (and do all your DOM work in) jQuery's document ready function
- */
+* Client-side JS logic goes here
+* jQuery is already loaded
+* Reminder: Use (and do all your DOM work in) jQuery's document ready function
+*/
+
+
 $(document).ready(function () {
+  const escape = function (str) {
+    let div = document.createElement("div");
+    div.appendChild(document.createTextNode(str));
+    return div.innerHTML;
+  };
   const createTweetElement = function (tweetData) {
     const $tweet = $(`
     <article class="tweet">
@@ -15,7 +22,7 @@ $(document).ready(function () {
       <p> ${tweetData.user.handle}</p>
     </header>
     <p>
-    ${tweetData.content.text}
+    ${escape(tweetData.content.text)}
     </p>
     <hr/>
     <footer >
@@ -50,9 +57,13 @@ $(document).ready(function () {
   loadTweets()
 
 
+// can escape character here
   $("#my-form").on("submit", function (event) {
     event.preventDefault();
     const formData = ($(this).serialize());
+    // const tweetText = $(this["text"]).val();
+    // // $("#tweet-text").text(tweetText);
+    // console.log ($(this["text"]).val())
 
     if (formData.length === 5 ) {
       alert('Tweet cannot be empty')

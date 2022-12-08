@@ -1,5 +1,5 @@
 const countNumber = 140;
-
+// can add a.text or a function 
 $(document).ready(function () {
   $("#tweet-text").on('input', function () {
     let count = countNumber - $(this).val().length;

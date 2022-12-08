@@ -45,6 +45,7 @@
 
 .error {
   color: red;
+ 
 }
 
 section.tweet {
@@ -60,6 +61,7 @@ section.tweet {
   font-style: normal;
   font-weight: bold;
   border-collapse: black 3px solid;
+  margin-top: 10px;
 }
 
 #wrongCount {

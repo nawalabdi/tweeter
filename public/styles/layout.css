@@ -3,11 +3,14 @@
  * https://css-tricks.com/international-box-sizing-awareness-day/
  * Do not modify these two selectors, please
  */
- 
+
 html {
   box-sizing: border-box;
 }
-*, *:before, *:after {
+
+*,
+*:before,
+*:after {
   box-sizing: inherit;
 }
 
@@ -22,11 +25,12 @@ body {
   font-family: Source Sans Pro, sans-serif;
   width: 100%;
 }
+
 /*
  * Additional CSS can be defined below or in other CSS files, as per instructions
  */
 
- /* styling the main css */
+/* styling the main css */
 .container {
   background-color: #f4f1ec;
   width: 90%;
@@ -36,14 +40,14 @@ body {
 
 #tweet-container {
   padding: 10px;
-  
+
 }
 
 article.tweet {
   border: black 3px solid;
   padding: 10px;
- margin: 20px;
-  
+  font-weight: bold;
+
 }
 
 article.tweet:hover {
@@ -56,11 +60,11 @@ article.tweet header {
   justify-content: space-between;
   padding: 16px;
   color: black;
-  
+
 }
 
 i.fa-solid {
-  color:  #4056A1
+  color: #4056A1
 }
 
 article.tweet footer {
@@ -69,28 +73,58 @@ article.tweet footer {
 
 }
 
- .date {
+.date {
   font-size: 16px;
   color: black;
   margin: 0;
-  
- }
 
- article.tweet header p {
+}
+
+article.tweet header p {
   margin: 10px
- }
+}
 
- hr {
+hr {
   border-color: #545149;
   border-width: 2px;
- }
+}
 
- .image {
+.image {
   display: flex;
- }
+}
 
- div i:hover {
+div i:hover {
   color: yellowgreen;
- }
- 
+}
 
+
+@media only screen and (min-width: 1024px) {
+
+  body {
+    display: flex;
+  }
+
+  .avatar {
+    width: 35%;
+    margin-top: 10em;
+    margin-left: 4em;
+
+  }
+
+  .container {
+    width: 50%;
+    margin-top: 7em;
+    font-weight: bold;
+    min-width: 600px;
+  }
+
+
+  #tweet-container {
+    display: flex;
+    flex-direction: column;
+
+  }
+  article.tweet {
+    
+  }
+}

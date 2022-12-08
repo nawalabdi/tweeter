@@ -15,15 +15,36 @@ z-index: 5;
 
 
 }
+@media only screen and (max-width: 1024px) {
+  nav {
+    background-color: pink;
+    background-image: url(https://www.transparenttextures.com/patterns/asfalt-light.png);
+  }
+
+}
+
+
 
 #logo {
   font-family:"bungee";
 }
 
 
-#arrow i {
+#arrow i  {
   color: red;
+  
+ 
 }
+.arrowDown {
+  animation: gelatine 0.5s infinite;
+}
+@keyframes  gelatine {
+  from, to { transform: scale(1, 1); }
+  25% { transform: scale(0.9, 1.1); }
+  50% { transform: scale(1.1, 0.9); }
+  75% { transform: scale(0.95, 1.05); }
+}
+
 
 #arrow {
   display: flex;
@@ -31,3 +52,4 @@ z-index: 5;
   align-items: center;
 
 }
+

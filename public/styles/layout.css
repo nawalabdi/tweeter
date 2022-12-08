@@ -36,6 +36,8 @@ body {
 
 #tweet-container {
   padding: 10px;
+  
+
 
 }
 
@@ -43,6 +45,7 @@ article.tweet {
   border: black 3px solid;
   padding: 10px;
   font-weight: bold;
+  margin-bottom: 1em;
 
 }
 
@@ -56,6 +59,7 @@ article.tweet header {
   justify-content: space-between;
   padding: 16px;
   color: black;
+ 
 
 }
 
@@ -120,7 +124,5 @@ div i:hover {
     flex-direction: column;
 
   }
-  article.tweet {
-    
-  }
+
 }

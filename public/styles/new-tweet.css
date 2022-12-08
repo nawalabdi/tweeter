@@ -53,7 +53,7 @@ section.tweet {
 }
 
 
-/* styling error message */
+/* styling error message if there is no characters */
 #errorMessage {
 
   color: red;
@@ -63,7 +63,7 @@ section.tweet {
   border-collapse: black 3px solid;
   margin-top: 10px;
 }
-
+/* styling error message if there is more than 140 characters */
 #wrongCount {
   
   color: red;

@@ -4,14 +4,14 @@
 * Reminder: Use (and do all your DOM work in) jQuery's document ready function
 */
 
-// function that escapes 
-$(document).ready(function () {
-  const escape = function (str) {
+//function that escapes 
+$(document).ready(function() {
+  const escape = function(str) {
     let div = document.createElement("div");
     div.appendChild(document.createTextNode(str));
     return div.innerHTML;
   };
-  const createTweetElement = function (tweetData) {
+  const createTweetElement = function(tweetData) {
     const $tweet = $(`
     <article class="tweet">
     <header> 
@@ -34,68 +34,64 @@ $(document).ready(function () {
     </div>
     </footer >
     </article>`
-    
-    )
+
+    );
     return $tweet;
-    
-  }
-  const renderTweets = function (tweets) {
+
+  };
+  const renderTweets = function(tweets) {
     $("#tweet-container").empty();
     for (const item of tweets) {
       const $tweet = createTweetElement(item);
-      $(`#tweet-container`).prepend($tweet)
+      $(`#tweet-container`).prepend($tweet);
     }
-  }
-  
-  
-  const loadTweets = function () {
+  };
+
+
+  const loadTweets = function() {
     $.get("/tweets", function (data) {
-      renderTweets(data)
+      renderTweets(data);
     });
-    
-  }
-  loadTweets()
-  
-  
+
+  };
+  loadTweets();
+
+
   // can escape character here
-  $("#my-form").on("submit", function (event) {
+  $("#my-form").on("submit", function(event) {
     event.preventDefault();
     const formData = ($(this).serialize());
-    // const errorMessage = document.getElementById('errorMessage')
-    // const wrongCount = document.getElementById('wrongCount')
-    // const tweetText = $(this["text"]).val();
-    // // $("#tweet-text").text(tweetText);
-    // console.log ($(this["text"]).val())
-    
-    if (formData.length === 5 ) {
-      $('#errorMessage').text("Tweet cannot be empty!")
+
+    if (formData.length === 5) {
+      $('#errorMessage').text("Tweet cannot be empty!");
       $('#errorMessage').slideDown("slow");
       $('#errorMessage').delay(5000).slideUp("slow");
       return;
 
-    } 
+    }
+
     if (formData.length > 145) {
       $('#wrongCount').text("Tweet can't be longer than 140 characters!");
       $('#wrongCount').slideDown("slow");
       $('#wrongCount').delay(5000).slideUp("slow");
 
-  
-    } else {
-          $.ajax({
-            type: "POST",
-            url: '/tweets/',
-            data: formData,
-            success: function () { 
-              $('#tweet-text').val('') 
-               loadTweets()
-               $('.counter').val('140')
-               },
-          })
-    
-        }
 
-  })
-})
+    } else {
+      $.ajax({
+        type: "POST",
+        url: '/tweets/',
+        data: formData,
+        success: function() {
+          $('#tweet-text').val('');
+          loadTweets();
+          $('.counter').val('140');
+        },
+      });
+
+    }
+
+  });
+});
 
 
 

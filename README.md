@@ -16,3 +16,8 @@ This repository is the starter code for the project: Students will fork and clon
 
 - Express
 - Node 5.10.x or above
+
+## Screenshots
+![ "Screenshot of Home Page"](https://github.com/nawalabdi/tweeter/blob/master/docs/new_home_page.PNG)
+![ "Screenshot of Mobile View"](https://github.com/nawalabdi/tweeter/blob/master/docs/mobile_view.PNG)
+![ "Screenshot of Error Messages"](https://github.com/nawalabdi/tweeter/blob/master/docs/Error_message.PNG)

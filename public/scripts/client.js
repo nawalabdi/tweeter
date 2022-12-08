@@ -53,6 +53,7 @@ $(document).ready(function () {
   $("#my-form").on("submit", function (event) {
     event.preventDefault();
     const formData = ($(this).serialize());
+
     if (formData.length === 5 ) {
       alert('Tweet cannot be empty')
       return;
@@ -65,19 +66,16 @@ $(document).ready(function () {
             type: "POST",
             url: '/tweets/',
             data: formData,
-            success: () => { loadTweets() },
+            success: function () { 
+              $('#tweet-text').val('') 
+               loadTweets()
+               },
           })
     
         }
 
   })
 })
-
-
-
-// The user should be given an error that their tweet content is too long or that it is not present (ideally separate messages for each scenario)
-// The form should not be cleared
-// The form should not submit
 
 
 

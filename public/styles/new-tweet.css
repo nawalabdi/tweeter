@@ -16,11 +16,11 @@
   flex-direction: column;
   border-bottom: 4px solid #545149;
   font-family: "Source Sans Pro", sans-serif;
- 
+
 }
 
-.tweet-header > textarea {
- font-family: sans-serif; 
+.tweet-header>textarea {
+  font-family: sans-serif;
   height: 40px;
   color: black;
   border: none;
@@ -36,7 +36,7 @@
   margin-top: 10px;
 }
 
-.tweet-footer > button {
+.tweet-footer>button {
   background-color: #4056A1;
   font-size: 15px;
   color: white;
@@ -49,4 +49,22 @@
 
 section.tweet {
   margin-bottom: 50px;
+}
+
+
+/* styling error message */
+#errorMessage {
+
+  color: red;
+   width: 10;
+  font-style: normal;
+  font-weight: bold;
+  border-collapse: black 3px solid;
+}
+
+#wrongCount {
+  
+  color: red;
+  font-style: normal;
+  font-weight: bold
 }

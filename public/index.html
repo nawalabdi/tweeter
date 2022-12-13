@@ -69,12 +69,11 @@
     <section class="tweet">
       <h2>Compose Tweet</h2>
       <div id="errorMessage"> </div>
-      <div id="wrongCount"> </div>
       <form id='my-form' method="post" action="/tweets/">
 
         <div class="tweet-header">
-          <label for="tweet-text">What are you humming about?</label>
-          <textarea name="text" id="tweet-text"></textarea>
+          <label for="tweet-text"></label>
+          <textarea name="text" id="tweet-text" placeholder="What are you humming about?"></textarea>
         </div>
         <div class="tweet-footer">
           <button type="submit">Tweet</button>

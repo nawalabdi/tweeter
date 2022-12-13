@@ -24,7 +24,6 @@
   height: 40px;
   color: black;
   border: none;
-  resize: none;
   outline: none;
   background-color: transparent;
 }
@@ -69,4 +68,8 @@ section.tweet {
   color: red;
   font-style: normal;
   font-weight: bold
+}
+
+.tweet-wrap {
+  word-break: break-word;
 }

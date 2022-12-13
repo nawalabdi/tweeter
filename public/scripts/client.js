@@ -11,6 +11,9 @@ $(document).ready(function() {
     div.appendChild(document.createTextNode(str));
     return div.innerHTML;
   };
+
+  // timeago function implemented below captures how long ago tweet was added
+  
   const createTweetElement = function(tweetData) {
     const $tweet = $(`
     <article class="tweet">
@@ -21,7 +24,7 @@ $(document).ready(function() {
       </div>
       <p> ${tweetData.user.handle}</p>
     </header>
-    <p>
+    <p class = "tweet-wrap">
     ${escape(tweetData.content.text)}
     </p>
     <hr/>
@@ -39,6 +42,10 @@ $(document).ready(function() {
     return $tweet;
 
   };
+
+   // loops through tweets
+    // calls createTweetElement for each tweet
+    // takes return value and appends it to the tweets container
   const renderTweets = function(tweets) {
     $("#tweet-container").empty();
     for (const item of tweets) {
@@ -60,35 +67,37 @@ $(document).ready(function() {
   // can escape character here
   $("#my-form").on("submit", function(event) {
     event.preventDefault();
-    const formData = ($(this).serialize());
+    $('#errorMessage').slideUp("slow");
+    const tweetLength = $('#tweet-text').val().length;
+    
 
-    if (formData.length === 5) {
+    console.log(tweetLength)
+    if (!tweetLength) {
       $('#errorMessage').text("Tweet cannot be empty!");
       $('#errorMessage').slideDown("slow");
-      $('#errorMessage').delay(5000).slideUp("slow");
       return;
 
     }
 
-    if (formData.length > 145) {
-      $('#wrongCount').text("Tweet can't be longer than 140 characters!");
-      $('#wrongCount').slideDown("slow");
-      $('#wrongCount').delay(5000).slideUp("slow");
+    if (tweetLength >= 141) {
+      $('#errorMessage').text("Tweet can't be longer than 140 characters!");
+      $('#errorMessage').slideDown("slow");
+      return;
 
+    } 
+    const formData= ($(this).serialize());
+    $.ajax({
+      type: "POST",
+      url: '/tweets/',
+      data: formData,
+      success: function() {
+        $('#tweet-text').val('');
+        loadTweets();
+        $('.counter').val('140');
+      },
+    });
 
-    } else {
-      $.ajax({
-        type: "POST",
-        url: '/tweets/',
-        data: formData,
-        success: function() {
-          $('#tweet-text').val('');
-          loadTweets();
-          $('.counter').val('140');
-        },
-      });
-
-    }
+    
 
   });
 });
